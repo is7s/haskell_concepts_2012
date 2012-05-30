@@ -1,6 +1,5 @@
 import Control.Monad.State
 import Data.Map (Map,(!),member,insert,empty)
-import Data.Monoid
 
 data Term = C String | V Char | S String [Term] deriving (Show,Eq)
 
