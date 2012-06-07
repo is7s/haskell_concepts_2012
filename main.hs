@@ -1,6 +1,5 @@
 import Control.Monad.State
 import Data.Map (Map,(!),insert,empty,member)
-import Debug.Trace
 
 data Term = C String | V Char | S String [Term] deriving (Show,Eq)
 
