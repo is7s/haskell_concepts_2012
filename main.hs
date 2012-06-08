@@ -5,7 +5,7 @@ data Term = C String | V Char | S String [Term] deriving (Show,Eq)
 
 unify :: Term -> Term -> StateT (Map Char Term) Maybe ()
 unify (V x)    (V y)     | x == y  = return ()
-unify (V c)  x           = get >>= \env -> if member c env then unify x (env!c) else modify (insert c x)
+unify (V c)    x         = get >>= \env -> if member c env then unify x (env!c) else modify (insert c x)
 unify p        v@(V _)   = unify v p
 unify (C x)    (C y)     | x == y  = return ()
 unify (S n t1) (S n' t2) | n == n' = zipWithM'_ unify t1 t2
